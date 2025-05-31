@@ -1,6 +1,6 @@
 cask "imgupv2" do
-  version "0.3.2"
-  sha256 "b4e9fdd737ff69c7a6566faace643aa5344ff27841c011d2adb69b72fda47068"
+  version "0.4.0"
+  sha256 "526142ad69f72a165c8998f5cfc57746e5a1e6c896d1483b2c941894579ef131"
 
   url "https://github.com/pdxmph/imgupv2/releases/download/v#{version}/imgupv2-v#{version}-macOS.tar.gz"
   name "imgupv2"
@@ -11,32 +11,26 @@ cask "imgupv2" do
 
   # The tarball extracts to imgupv2-vVERSION-macOS/
   app "imgupv2-v#{version}-macOS/imgupv2-gui.app"
-  app "imgupv2-v#{version}-macOS/imgupv2-hotkey.app"
 
   # Install the CLI binary
   binary "imgupv2-v#{version}-macOS/imgup"
 
   postflight do
-    # Instructions for accessibility permissions
+    # Instructions for launching
     ohai "imgupv2 installed successfully!"
     ohai ""
-    ohai "IMPORTANT: To enable the global hotkey (Option+Shift+I):"
-    ohai "1. Open System Settings > Privacy & Security > Accessibility"
-    ohai "2. Click the + button to add an app"
-    ohai "3. Navigate to /Applications and select imgupv2-hotkey.app"
-    ohai "4. Make sure the toggle is enabled"
+    ohai "To use imgupv2:"
+    ohai "• GUI: Open imgupv2-gui from Applications or Spotlight"
+    ohai "• CLI: Use 'imgup' command in Terminal"
     ohai ""
-    ohai "To start the hotkey daemon:"
-    ohai "  open -a 'imgupv2-hotkey'"
-    ohai ""
-    ohai "To add it to Login Items:"
-    ohai "  System Settings > General > Login Items"
+    ohai "For quick access, create a keyboard shortcut:"
+    ohai "1. Open Shortcuts.app"
+    ohai "2. Create new shortcut with 'Run Shell Script' action"
+    ohai "3. Enter: open -a imgupv2-gui"
+    ohai "4. Add keyboard shortcut (e.g., ⌘⇧U)"
   end
 
-  uninstall quit: [
-              "com.imgupv2.gui",
-              "com.imgupv2.hotkey"
-            ]
+  uninstall quit: "com.imgupv2.gui"
 
   zap trash: [
     "~/Library/Application Support/imgupv2",
