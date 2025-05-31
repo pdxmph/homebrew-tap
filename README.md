@@ -6,12 +6,25 @@
 
 Or `brew tap pdxmph/tap` and then `brew install <formula>`.
 
-Or, in a `brew bundle` `Brewfile`:
+## Available Casks
 
-```ruby
-tap "pdxmph/tap"
-brew "<formula>"
+### imgupv2
+
+Fast image uploader for Flickr with metadata review and Mastodon support.
+
+```bash
+brew install --cask pdxmph/tap/imgupv2
 ```
+
+Features:
+- Upload to Flickr with metadata preservation
+- Post to Mastodon with customizable visibility
+- GUI for quick uploads with metadata review
+- Global hotkey support (Option+Shift+I)
+
+## Available Formulae
+
+None yet.
 
 ## Documentation
 
