@@ -24,9 +24,6 @@ Features:
 
 ## Available Formulae
 
-<<<<<<< HEAD
-None yet.
-=======
 ### denote-tasks
 
 Task management tool using the Denote file naming convention.
@@ -41,7 +38,6 @@ Features:
 - CLI for quick task operations
 - Consistent file naming with metadata in frontmatter
 - Shell completions (automatically installed)
->>>>>>> 82d8b85 (docs: add denote-tasks to available formulae)
 
 ## Documentation
 

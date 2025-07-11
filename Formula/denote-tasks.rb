@@ -4,28 +4,29 @@ class DenoteTasks < Formula
   version "0.14.1"
   license "MIT"
   
-  # Build from source by default
-  url "https://github.com/pdxmph/denote-tasks/archive/refs/tags/v0.14.1.tar.gz"
-  sha256 "26715011d330b8bd129c75bb5c280efe836d2f8d74ea027ba6d0a3bfea984ee4"
-  
-  # Binary releases for faster installation
+  # Use binary release for ARM64 Macs
   if OS.mac? && Hardware::CPU.arm?
     url "https://github.com/pdxmph/denote-tasks/releases/download/v0.14.1/denote-tasks_v0.14.1_darwin_arm64.tar.gz"
     sha256 "1dc50281130fcf9b37d84abff0a361940e1cb5abe85211a50aeee33a3c072a18"
+  else
+    # Fall back to building from source
+    url "https://github.com/pdxmph/denote-tasks/archive/refs/tags/v0.14.1.tar.gz"
+    sha256 "26715011d330b8bd129c75bb5c280efe836d2f8d74ea027ba6d0a3bfea984ee4"
+    depends_on "go" => :build
   end
   
-  depends_on "go" => :build if build.from_source?
   depends_on arch: :arm64  # Currently only ARM64 builds available
 
   def install
-    if build.from_source?
+    if File.exist?("go.mod")
+      # Building from source
       system "go", "build", *std_go_args(ldflags: "-s -w")
       
       # Install completions from source
       bash_completion.install "completions/denote-tasks.bash"
       zsh_completion.install "completions/_denote-tasks"
     else
-      # Install pre-built binary
+      # Installing pre-built binary
       bin.install "denote-tasks"
       
       # Install completions from binary archive
