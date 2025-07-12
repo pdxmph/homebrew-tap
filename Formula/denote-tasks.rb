@@ -1,17 +1,17 @@
 class DenoteTasks < Formula
   desc "Task management tool using Denote file naming convention"
   homepage "https://github.com/pdxmph/denote-tasks"
-  version "0.14.2"
+  version "0.15.0"
   license "MIT"
   
   # Use binary release for ARM64 Macs
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/pdxmph/denote-tasks/releases/download/v0.14.2/denote-tasks_v0.14.2_darwin_arm64.tar.gz"
-    sha256 "23106221c46cd8257d06dbd95114014630c8ad5ecc84640838fdd933ddd1006f"
+    url "https://github.com/pdxmph/denote-tasks/releases/download/v0.15.0/denote-tasks_v0.15.0_darwin_arm64.tar.gz"
+    sha256 "c0f0c90d3429da029319fb05303e63f6b6f2f804211a75b6e4e17a935a2f3cf3"
   else
     # Fall back to building from source
-    url "https://github.com/pdxmph/denote-tasks/archive/refs/tags/v0.14.2.tar.gz"
-    sha256 "e46bbb269e5b0652098740291649b00f4b1f0148fb1d67f03c20c57c86757428"
+    url "https://github.com/pdxmph/denote-tasks/archive/refs/tags/v0.15.0.tar.gz"
+    sha256 "db414b5fc33ce8b2f983dd816d97185bfeecfd45db847bed77747aab0edb6a00"
     depends_on "go" => :build
   end
   
