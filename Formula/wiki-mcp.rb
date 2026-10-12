@@ -17,9 +17,9 @@ class WikiMcp < Formula
   homepage "https://github.com/mph-llm-experiments/mcp-wiki"
   url "git@github.com:mph-llm-experiments/mcp-wiki.git",
       using:    :git,
-      tag:      "v0.3.0",
-      revision: "861f4e320cd16027b647b4553472d6651b67eb47"
-  version "0.3.0"
+      tag:      "v0.4.0",
+      revision: "09b1dd4eae42b56c1f3800f30f5c95c013c93955"
+  version "0.4.0"
 
   depends_on "node"
 
